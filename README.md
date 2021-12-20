@@ -24,4 +24,9 @@ To use all features of the library, it is recommended to use something similar t
 </details>
 ```
 
+You can create diagrams by calling the following method: 
+```
+displayChart(element, type, labels[], values[], unitString, unitReverse, chartReverse, chartID)
+```
+
 This will work well with the provided CSS and enable you to make use of the analytic features, like percentiles and averages. You could disable the display on the settings box to hide it from the user. 
