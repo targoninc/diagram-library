@@ -8,7 +8,7 @@ You can add the library to your project by inserting the following script tag:
 <script src="https://targoninc.com/diagrams/diagrams.js"/>
 ```
 
-To use all features of the library, it is recommended to use the following code:
+To use all features of the library, it is recommended to use something similar to the following code:
 
 ```
 <div class="settingbox diagram">
