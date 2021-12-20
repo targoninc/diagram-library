@@ -140,19 +140,19 @@ function drawHorizontals() {
             line75 = line25.nextElementSibling;
         } catch {}
         if (averageToggle.checked) {
-            try {lineAvg.classList.remove('hide');} catch {}
+            try {lineAvg.classList.remove('hidden');} catch {}
             try {drawHorizontal(charts[i], lineAvg.getAttribute('value'), lineAvg);} catch {}
         } else {
-            try {lineAvg.classList.add('hide');} catch {}
+            try {lineAvg.classList.add('hidden');} catch {}
         }
         if (percentileToggle.checked) {
-            try {line25.classList.remove('hide');} catch {}
-            try {line75.classList.remove('hide');} catch {}
+            try {line25.classList.remove('hidden');} catch {}
+            try {line75.classList.remove('hidden');} catch {}
             try {drawHorizontal(charts[i], line25.getAttribute('value'), line25);} catch {}
             try {drawHorizontal(charts[i], line75.getAttribute('value'), line75);} catch {}
         } else {
-            try {line25.classList.add('hide');} catch {}
-            try {line75.classList.add('hide');} catch {}
+            try {line25.classList.add('hidden');} catch {}
+            try {line75.classList.add('hidden');} catch {}
         }
     }
     charts = document.getElementsByClassName('diagram_points');
@@ -163,19 +163,19 @@ function drawHorizontals() {
             line75 = line25.nextElementSibling;
         } catch {}
         if (averageToggle.checked) {
-            try {lineAvg.classList.remove('hide');} catch {}
+            try {lineAvg.classList.remove('hidden');} catch {}
             try {drawHorizontal(charts[i], lineAvg.getAttribute('value'), lineAvg);} catch {}
         } else {
-            try {lineAvg.classList.add('hide');} catch {}
+            try {lineAvg.classList.add('hidden');} catch {}
         }
         if (percentileToggle.checked) {
-            try {line25.classList.remove('hide');} catch {}
-            try {line75.classList.remove('hide');} catch {}
+            try {line25.classList.remove('hidden');} catch {}
+            try {line75.classList.remove('hidden');} catch {}
             try {drawHorizontal(charts[i], line25.getAttribute('value'), line25);} catch {}
             try {drawHorizontal(charts[i], line75.getAttribute('value'), line75);} catch {}
         } else {
-            try {line25.classList.add('hide');} catch {}
-            try {line75.classList.add('hide');} catch {}
+            try {line25.classList.add('hidden');} catch {}
+            try {line75.classList.add('hidden');} catch {}
         }
     }
 }
