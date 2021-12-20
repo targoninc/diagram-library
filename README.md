@@ -24,7 +24,7 @@ To use all features of the library, it is recommended to use something similar t
 </details>
 ```
 
-You can create diagrams by calling the following method: 
+**You can create diagrams by calling the following method:**
 ```javascript
 displayChart(element, type, labels[], values[], unitString, unitReverse, chartReverse, chartID)
 ```
