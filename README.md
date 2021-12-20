@@ -6,6 +6,7 @@ This library was written in plain JavaScript and CSS as a hobby project. Feel fr
 ```html
 <script src="https://targoninc.com/diagrams/diagrams.js"/>
 ```
+Optionally, you can download the files from this repository and add them to your project.
 
 **To use all features of the library, it is recommended to use something similar to the following code:**
 ```html
