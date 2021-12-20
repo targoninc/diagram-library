@@ -1,5 +1,5 @@
-# diagram-library
-A JavaScript + CSS library for web development to create simple diagrams.
+# A JS+CSS diagram library for web development
+This library was written in plain JavaScript and CSS as a hobby project. Feel free to modify the code and make it better.
 
 # How to use
 You can add the library to your project by inserting the following script tag:
