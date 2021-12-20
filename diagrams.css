@@ -1,0 +1,292 @@
+summary.diagram {
+	cursor: pointer;
+}
+
+details.diagram {
+	background: var(--soft-background);
+	border-radius: 5px;
+	padding: 9px 15px 15px 15px;
+	overflow: hidden;
+	resize: horizontal;
+}
+
+details.diagram:hover {
+    border: 1px solid var(--neutral);
+	margin: -1px;
+}
+
+details.diagram summary:hover {
+	color: var(--data-highlight);
+}
+
+summary.diagram {
+	font-size: 20px;
+}
+
+.settingbox.diagram {
+	padding: 15px 20px;
+	border-radius: 5px;
+	margin: 20px 0 20px 0;
+	background-color: var(--soft-background);
+	border: 1px solid var(--neutral);
+}
+
+.diagram_container {
+	resize: both;
+	/*overflow: hidden; commented out because while resizing is neat, labels are cut off*/
+	height: max-content;
+	max-width: 100%;
+	min-height: 200px;
+	min-width: 50%;
+	--base-radius: 5px;
+	--inner-radius: calc(var(--base-radius) - 2px);
+	--diagram-lineThickness: 1px;
+}
+
+.diagram_reload {
+	width: 20px;
+	height: 20px;
+	margin: 10px 0 0 0px;
+	cursor: pointer;
+}
+
+.diagram_loader {
+	margin: 10px 0 0 5px;
+	width: 20px;
+	height: 20px;
+	border-top: 1px solid #aaaabb;
+	border-radius: 100%;
+	animation: spin 1.2s linear infinite;
+}
+
+.spin {
+	animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.diagram_topHalf {
+	display: flex;
+}
+
+.diagram_bars, .diagram_points {
+	height: 250px;
+	width: 100%;
+	display: flex;
+	border: white solid 1px;
+	padding: 5px;
+	margin-bottom: -1px;
+	background-color: rgba(255,255,255,0.05);
+	border-radius: var(--base-radius);
+	justify-content: space-evenly;
+}
+
+.diagram_flexReverse {
+	flex-direction: row-reverse;
+}
+
+.diagram_points {
+	padding: 10px 0 3px 3px;
+}
+
+.diagram_bar {
+	background-color: var(--data-highlight);
+	align-self: end;
+	border-radius: var(--inner-radius);
+	display: flex;
+	min-height: var(--inner-radius);
+	transition: background-color var(--movement-time) ease;
+}
+
+.diagram_point {
+	background-color: var(--data-highlight);
+	align-self: end;
+	border-radius: 50%;
+	display: flex;
+	height: var(--base-radius);
+	width: var(--base-radius);
+	position: relative;
+}
+
+.diagram_horizontal {
+	position: absolute;
+	width: 1px;
+	border-left: solid var(--diagram-lineThickness) var(--data-highlight);
+}
+
+.diagram_line {
+	position: absolute;
+	width: var(--diagram-lineThickness);
+	background-color: var(--data-highlight);
+	border-radius: calc(var(--diagram-lineThickness) / 2);
+}
+
+.diagram_vertical_space {
+	height: 100%;
+	display: flex;
+	background-color: transparent;
+	border: none;
+	border-color: var(--data-highlight);
+	border-radius: var(--inner-radius) var(--inner-radius) 0 0;
+	transition: background-color var(--movement-time) ease, border var(--movement-time) ease;
+	margin-right: 5px;
+}
+
+.diagram_dataYlabels {
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	width: max-content;
+	margin-left: 10px;
+	position: relative;
+}
+
+.diagram_maxYValue {
+    flex-grow: 1;
+}
+
+.diagram_horizontalYValue, .diagram_horizontalValue {
+	position: absolute;
+	color: var(--data-highlight);
+	border-radius: var(--inner-radius);
+	padding: 5px;
+	margin-left: -5px;
+}
+
+.diagram_horizontalYValue:hover {
+	z-index: 1;
+	background-color: var(--data-highlight);
+	color: var(--doc-background);
+	transition: background-color var(--movement-time) ease, color var(--movement-time) ease;
+}
+
+.diagram_horizontalValue {
+    font-size: 12px;
+}
+
+.diagram_bottomYValue {
+    align-self: end;
+    width: 100%;
+}
+
+.diagram_inlineFlex {
+	margin: 10px 0;
+	display: inline-flex;
+}
+
+.diagram_inlineInput {
+	margin: 0;
+	height: 36px;
+	width: 100px;
+	background: transparent;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: var(--base-radius);
+}
+
+.diagram_inlineText {
+	padding: 5px 10px;
+	line-height: 26px;
+	white-space: nowrap;
+}
+
+.diagram_flexContainer {
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+.diagram_flexStretch {
+    flex-grow: 1;
+	max-width: calc(100% - 70px);
+}
+
+.diagram_dataXlabels {
+	height: max-content;
+	width: 100%;
+	display: flex;
+	padding: 0 5px;
+	justify-content: space-evenly;
+}
+
+.diagram_dataXlabel {
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	transform: rotate(-45deg);
+	transform-origin: 50% 0%;
+	margin-top: 10px;
+	margin-left: -14px;
+}
+
+.diagram_dataValue {
+	margin: -33px 0 0 -1px;
+	align-self: flex-start;
+	background-color: var(--doc-background);
+	color: var(--data-highlight);
+	border-radius: var(--inner-radius) var(--inner-radius) var(--inner-radius) 0;
+	padding: 5px;
+	font-size: 14px;
+	opacity: 0;
+	transition: opacity var(--movement-time) ease;
+}
+
+.diagram_vertical_space .diagram_dataValue {
+	margin-top: -28px;
+	margin-left: 3px;
+}
+
+.diagram_vertical_space:hover, .diagram_vertical_space[selected] {
+	border: dashed 1px var(--data-highlight);
+	margin-left: -1px;
+	border-bottom: none;
+	background-color: var(--soft-background);
+	cursor: copy;
+	transition: background-color var(--movement-time) ease;
+}
+
+.diagram_vertical_space:hover .diagram_point, .diagram_vertical_space[selected] .diagram_point {
+    margin-right: -1px;
+}
+
+.diagram_bar:hover, .diagram_bar[selected] {
+	background-color: var(--soft-background);
+	border: 1px solid var(--data-highlight);
+	border-radius: 0 0 var(--inner-radius) var(--inner-radius);
+	cursor: copy;
+	transition: background-color var(--movement-time) ease;
+}
+
+.diagram_bar:hover .diagram_dataValue {
+	background-color: var(--doc-background);
+	border: var(--data-highlight) 1px solid;
+    color: var(--data-highlight);
+	z-index: 2;
+	opacity: initial;
+	transition: opacity var(--movement-time) ease;
+}
+
+.diagram_bar[selected] .diagram_dataValue {
+	background-color: var(--data-highlight);
+    color: var(--doc-background);
+	opacity: initial;
+	transition: opacity var(--movement-time) ease;
+}
+
+.diagram_vertical_space:hover .diagram_dataValue {
+	background-color: var(--doc-background);
+	border: var(--data-highlight) 1px solid;
+    color: var(--data-highlight);
+	z-index: 2;
+	opacity: initial;
+	transition: opacity var(--movement-time) ease;
+}
+
+.diagram_vertical_space[selected] .diagram_dataValue {
+	background-color: var(--data-highlight);
+    color: var(--doc-background);
+	opacity: initial;
+	transition: opacity var(--movement-time) ease;
+}
