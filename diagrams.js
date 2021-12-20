@@ -8,6 +8,7 @@ document.getElementsByTagName( "head" )[0].appendChild( link );
 
 /**
  * Toggles one data point to be selected or not, depending on the previous state.
+ * @returns {void}
  */
 function toggleDiagramSelect() {
     if (this.hasAttribute("selected")) {
@@ -19,7 +20,8 @@ function toggleDiagramSelect() {
 
 /**
  * Prepares the functionality for diagram points to be selected.
- * @param className The name of the class to apply the selection preparation to.
+ * @returns {void}
+ * @param {string} className The name of the class to apply the selection preparation to.
  */
 function initDiagramSelect(className) {
     let elements = document.getElementsByClassName(className);
@@ -30,6 +32,7 @@ function initDiagramSelect(className) {
 
 /**
  * Initializes the selection feature and connects points in point charts.
+ * @returns {void}
  */
 function initDiagramSelects() {
     initDiagramSelect('diagram_bar');
@@ -72,6 +75,7 @@ averageToggle.onchange = function() {
 
 /**
  * Connects all points in point charts, if existent.
+ * @returns {void}
  */
 function connectPoints() {
     drawHorizontals();
@@ -98,7 +102,8 @@ function connectPoints() {
 
 /**
  * Can be used to change the line thickness on demand.
- * @param change The amount to change by, in px.
+ * @returns {void}
+ * @param {number} change The amount to change by, in px.
  */
 function changeLineThickness(change) {
     let diagramContainers = document.querySelectorAll('.diagram_container');
@@ -109,8 +114,9 @@ function changeLineThickness(change) {
 
 /**
  * Can be used to change the line thickness for a single element.
- * @param element The element to affect.
- * @param change The amount to change by, in px.
+ * @returns {void}
+ * @param {HTMLElement} element The element to affect.
+ * @param {number} change The amount to change by, in px.
  */
 function changeElementLineThickness(element, change) {
     let newValue = parseInt(getComputedStyle(element).getPropertyValue('--diagram-lineThickness'))+parseInt(change);
@@ -120,6 +126,7 @@ function changeElementLineThickness(element, change) {
 
 /**
  * Attempts to draw percentile lines and average lines, if checkboxes are existent AND checked.
+ * @returns {void}
  */
 function drawHorizontals() {
     let i;
@@ -175,9 +182,10 @@ function drawHorizontals() {
 
 /**
  * Transforms a div to draw a horizontal line.
- * @param e The reference element.
- * @param value The bottom margin, from 0 (none) to 1 (full).
- * @param line The element that will become the line.
+ * @returns {void}
+ * @param {HTMLElement} e The reference element.
+ * @param {number} value The bottom margin, from 0 (none) to 1 (full).
+ * @param {HTMLElement} line The element that will become the line.
  */
 function drawHorizontal(e, value, line){
     var fT = e.offsetTop  + e.offsetHeight - (e.offsetHeight * value);
@@ -205,12 +213,8 @@ function drawHorizontal(e, value, line){
       ANG *= -1;
     }
     top-= H/2;
-  
-    line.style["-webkit-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-moz-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-transform"] = 'rotate('+ ANG +'deg)';
+
+    line.style.transform = 'rotate('+ ANG +'deg)';
     line.style.top    = top+'px';
     line.style.left   = left+'px';
     line.style.height = H + 'px';
@@ -218,9 +222,10 @@ function drawHorizontal(e, value, line){
 
 /**
  * Transforms a DOM element to span from one element to another.
- * @param from The origin element.
- * @param to The target element.
- * @param line The element that will become the line.
+ * @returns {void}
+ * @param {HTMLElement} from The origin element.
+ * @param {HTMLElement} to The target element.
+ * @param {HTMLElement} line The element that will become the line.
  */
 function adjustLine(from, to, line){
     var fT = from.offsetTop  + from.offsetHeight/2;
@@ -248,12 +253,8 @@ function adjustLine(from, to, line){
       ANG *= -1;
     }
     top -= H / 2;
-  
-    line.style["-webkit-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-moz-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-transform"] = 'rotate('+ ANG +'deg)';
+
+    line.style.transform = 'rotate('+ ANG +'deg)';
     line.style.top    = top+'px';
     line.style.left   = left+'px';
     line.style.height = H + 'px';
@@ -261,23 +262,21 @@ function adjustLine(from, to, line){
 
 /**
  * Sorts an array ascending.
- * @param arr
- * @returns {*}
+ * @returns {Array}
+ * @param {Array} arr
  */
 const asc = arr => arr.sort((a, b) => a - b);
 
 /**
  * Calculates the sum of a numerical array.
- * @param arr
- * @returns {*}
+ * @param {Array<number>} arr
  */
 const sum = arr => arr.reduce((a, b) => a + b, 0);
 
 /**
  * Calculates the quantile for a numerical array and a given quantile (0-1).
- * @param arr
- * @param q
- * @returns {*}
+ * @param {Array} arr
+ * @param {number} q
  */
 const quantile = (arr, q) => {
     const sorted = asc(arr);
@@ -293,21 +292,21 @@ const quantile = (arr, q) => {
 
 /**
  * Converts an array to numerical.
- * @param arr
- * @returns {*}
+ * @returns {Array<number>}
+ * @param {Array} arr
  */
 const toNumbers = arr => arr.map(Number);
 
 /**
  * Displays a chart within a desired element.
- * @param element The element to place the chart within. Does not replace existing contents.
- * @param type The type of the chart. Valid values: ["bar","point"]
- * @param labels The labels to display, as array. E.g. ["month 1", "month 2", "month 3"]
- * @param values The values to display, as array. E.g. [24, 37.2, 58]
- * @param unitString The unit string, if applicable. E.g. "$" or "%"
- * @param unitReverse If the unit string should be placed in front of the value, as boolean.
- * @param reverse If the chart should be displayed in reverse, meaning the [0] elements will be placed on the right.
- * @param chartID The ID to assign to the chart.
+ * @param {HTMLElement} element The element to place the chart within. Does not replace existing contents.
+ * @param {string} type The type of the chart. Valid values: ["bar","point"]
+ * @param {Array<string>} labels The labels to display, as array. E.g. ["month 1", "month 2", "month 3"]
+ * @param {Array<number>} values The values to display, as array. E.g. [24, 37.2, 58]
+ * @param {string} unitString The unit string, if applicable. E.g. "$" or "%"
+ * @param {boolean} unitReverse If the unit string should be placed in front of the value, as boolean.
+ * @param {boolean} reverse If the chart should be displayed in reverse, meaning the [0] elements will be placed on the right.
+ * @param {string} chartID The ID to assign to the chart.
  */
 function displayChart(element, type, labels, values, unitString, unitReverse, reverse, chartID) {
     if (reverse === true) {
