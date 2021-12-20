@@ -12,9 +12,9 @@ To use all features of the library, it is recommended to use something similar t
 
 ```
 <div class="settingbox diagram">
-    <input type="checkbox" name="showPercentiles" id="showPercentiles" style="margin: 0;" checked>
+    <input type="checkbox" name="showPercentiles" id="showPercentiles" checked>
     <label for="showPercentiles">Show percentiles</label>
-    <input type="checkbox" name="showAverages" id="showAverages" style="margin: 0;" checked>
+    <input type="checkbox" name="showAverages" id="showAverages" checked>
     <label for="showAverages">Show averages</label>
 </div>
 <details class="diagram" open>
