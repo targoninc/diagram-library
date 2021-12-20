@@ -4,13 +4,13 @@ This library was written in plain JavaScript and CSS as a hobby project. Feel fr
 # How to use
 You can add the library to your project by inserting the following script tag:
 
-```
+```html
 <script src="https://targoninc.com/diagrams/diagrams.js"/>
 ```
 
 To use all features of the library, it is recommended to use something similar to the following code:
 
-```
+```html
 <div class="settingbox diagram">
     <input type="checkbox" name="showPercentiles" id="showPercentiles" checked>
     <label for="showPercentiles">Show percentiles</label>
@@ -25,7 +25,7 @@ To use all features of the library, it is recommended to use something similar t
 ```
 
 You can create diagrams by calling the following method: 
-```
+```javascript
 displayChart(element, type, labels[], values[], unitString, unitReverse, chartReverse, chartID)
 ```
 
