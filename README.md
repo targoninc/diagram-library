@@ -8,7 +8,7 @@ This library was written in plain JavaScript and CSS as a hobby project. Feel fr
 ```
 Optionally, you can download the files from this repository and add them to your project.
 
-**To use all features of the library, it is recommended to use something similar to the following code:**
+## To use all features of the library, it is recommended to use something similar to the following code:
 ```html
 <div class="settingbox diagram">
     <input type="checkbox" name="showPercentiles" id="showPercentiles" checked>
@@ -23,7 +23,7 @@ Optionally, you can download the files from this repository and add them to your
 </details>
 ```
 
-**You can create diagrams by calling the following method:**
+## You can create diagrams by calling the following method:
 ```javascript
 displayChart(element, type, labels[], values[], unitString, unitReverse, chartReverse, chartID)
 ```
